@@ -30,6 +30,7 @@ typedef struct SFSEPluginInfo_t
 } SFSEPluginInfo;
 
 using namespace RE;
+
 class HelloWorldSink : public RE::BSTEventSink<RE::MenuOpenCloseEvent>
 {
     // Hérité via BSTEventSink
@@ -48,7 +49,6 @@ public:
     HelloWorldSink() = default;
 };
 
-
 extern "C" __declspec(dllexport) SFSEPluginVersionData SFSEPlugin_Version = {
     1, // SFSE api version
     1, // Plugin version
@@ -62,7 +62,6 @@ extern "C" __declspec(dllexport) SFSEPluginVersionData SFSEPlugin_Version = {
     0  //  reserved fields
 };
 
-
 // SFSE message listener, use this to do stuff at specific moments during runtime
 void Listener(SFSE::MessagingInterface::Message* message) noexcept
 {
@@ -75,7 +74,7 @@ void Listener(SFSE::MessagingInterface::Message* message) noexcept
         Settings::LoadSettings();
         Hooks::Install();
 
-        //RE::ConsoleLog::GetSingleton()->Log("A menu was opened or closed!");
+        // RE::ConsoleLog::GetSingleton()->Log("A menu was opened or closed!");
 
         HelloWorldSink* sink = new HelloWorldSink();
 
@@ -93,14 +92,14 @@ SFSEPluginLoad(const SFSE::LoadInterface* sfse)
 {
     Init(sfse);
 
-    //logger::info("{} {} is loading...", Plugin::Name, Plugin::Version.string());
+    // logger::info("{} {} is loading...", Plugin::Name, Plugin::Version.string());
 
     logger::info("{} {} is loading...", "hellowowlrd", "stuff");
 
     if (const auto messaging{ SFSE::GetMessagingInterface() }; !messaging->RegisterListener(Listener))
         return false;
 
-    //logger::info("{} has finished loading.", Plugin::Name);
+    // logger::info("{} has finished loading.", Plugin::Name);
 
     logger::info("{} has finished loading.", "helloword");
 
