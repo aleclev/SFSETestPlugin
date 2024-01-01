@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.27)
 
 project(
-  PluginName
-  VERSION 0.0.1
+  HelloWorld
+  VERSION 1.0.0
   LANGUAGES CXX
 )
 
@@ -51,7 +51,7 @@ file(
 # Create plugin
 add_commonlibsf_plugin(
   ${PROJECT_NAME}
-  AUTHOR AuthorName
+  AUTHOR aleclev
   SOURCES ${headers} ${sources}
 )
 

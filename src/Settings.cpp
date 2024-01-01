@@ -7,7 +7,7 @@ void Settings::LoadSettings() noexcept
     CSimpleIniA ini;
 
     ini.SetUnicode();
-    if (ini.LoadFile(R"(.\Data\SFSE\Plugins\PluginName.ini)") <=> 0 < 0) {
+    if (ini.LoadFile(R"(.\Data\SFSE\Plugins\HelloWorld.ini)") <=> 0 < 0) {
         logger::error("ERROR: Failed to load ini");
         return;
     }
